@@ -1,0 +1,37 @@
+using System;
+
+namespace To10BitFromConsole
+{
+    class To10BitFromConsole
+    {
+        static void Main(string[] args)
+        {
+            int n = 0;
+            n = tryParse(n, "Enter your decimal number: ");
+
+            string bin = Convert.ToString(n, 2);
+            Console.WriteLine($"{n}(10) -> {bin}(2)");
+        }
+
+        static int tryParse(int num, string message)
+        {
+            bool tryParse = false;
+
+            do
+            {
+                Console.Write(message);
+                tryParse = int.TryParse(Console.ReadLine(), out num);
+                if (tryParse == true)
+                {
+                    return num;
+                }
+                else
+                {
+                    Console.WriteLine("Try again!");
+                }
+            } while (tryParse == false);
+
+            return 1;
+        }
+    }
+}
