@@ -1,0 +1,21 @@
+using System;
+
+namespace To2Bit
+{
+    class To2Bit
+    {
+        static void Main(string[] args)
+        {
+
+            int[] nums = {151, 35, 43, 251, 1023, 1024};
+            string[] binary = new string[nums.Length];
+
+            for(int i = 0; i < nums.Length; i++)
+            {
+                binary[i] = Convert.ToString(nums[i], 2);
+                Console.WriteLine($"{nums[i]} -> {binary[i]}");
+            }
+
+        }
+    }
+}
