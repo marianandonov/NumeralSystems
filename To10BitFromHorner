@@ -1,0 +1,49 @@
+using System;
+
+namespace To10BitFromHorner
+{
+    class To10BitFromHorner
+    {
+        static void Main(string[] args)
+        {
+            bool tryParse = false;
+            bool check = false;
+            string bin = "";
+
+            do
+            {
+                Console.Write("Enter a binary number: ");
+                bin = Console.ReadLine();
+                for (int i = 0; i < bin.Length; i++)
+                {
+                    if (!bin[i].Equals('0') && !bin[i].Equals('1'))
+                    {
+                        Console.WriteLine("Try again!");
+                        check = false;
+                        break;
+                    }
+                    else
+                    {
+                        check = true;
+                    }
+                }
+                if (check == true)
+                {
+                    tryParse = true;
+                }
+            } while (tryParse == false);
+
+            int length = bin.Length;
+            int pow = length - 1;
+            int dec = 0;
+
+            for (int i = 0; i < length; i++)
+            {
+                dec += (int)(int.Parse(bin[i].ToString()) * Math.Pow(2, pow));
+                pow--;
+            }
+
+            Console.WriteLine($"{bin}(2) -> {dec}(10)");
+        }
+    }
+}
