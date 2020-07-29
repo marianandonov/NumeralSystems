@@ -1,0 +1,21 @@
+using System;
+
+namespace To2BitAnd10Bit
+{
+    class To2BitAnd10Bit
+    {
+        static void Main(string[] args)
+        {
+            string[] hex = {"2a3e", "fa", "ffff", "590e9"};
+            int[] dec = new int[hex.Length];
+            string[] bin = new string[hex.Length];
+
+            for(int i = 0; i < hex.Length; i++)
+            {
+                dec[i] = Convert.ToInt32(hex[i], 16);
+                bin[i] = Convert.ToString(dec[i], 2);
+                Console.WriteLine($"{hex[i]}(16) -> {dec[i]}(10) -> {bin[i]}(2)");
+            }
+        }
+    }
+}
