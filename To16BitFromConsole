@@ -1,0 +1,39 @@
+using System;
+
+namespace To16BitFromConsole
+{
+    class To16BitFromConsole
+    {
+        static void Main(string[] args)
+        {
+
+            int n = 0;
+            n = tryParse(n, "Enter your decimal number: ");
+
+            string hex = Convert.ToString(n, 16);
+            Console.WriteLine($"{n}(10) -> {hex}(16)");
+
+        }
+
+        static int tryParse(int num, string message)
+        {
+            bool tryParse = false;
+
+            do
+            {
+                Console.Write(message);
+                tryParse = int.TryParse(Console.ReadLine(), out num);
+                if (tryParse == true)
+                {
+                    return num;
+                }
+                else
+                {
+                    Console.WriteLine("Try again!");
+                }
+            } while (tryParse == false);
+
+            return 1;
+        }
+    }
+}
