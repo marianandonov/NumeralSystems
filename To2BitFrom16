@@ -1,0 +1,43 @@
+using System;
+
+namespace To2BitFrom16Bit
+{
+    class To2BitFrom16Bit
+    {
+        static void Main(string[] args)
+        {
+            bool tryParse = false, check = false;
+            string hex = "";
+
+            do
+            {
+                Console.Write("Enter a 16bit number: ");
+                hex = Console.ReadLine().ToLower().Trim();
+                for (int i = 0; i < hex.Length; i++)
+                {
+                    check = OnlyHexInString(hex);
+
+                    if (check == false)
+                    {
+                        Console.WriteLine("Try again!");
+                        break;
+                    }
+                }
+                if (check == true)
+                {
+                    tryParse = true;
+                }
+            } while (tryParse == false);
+
+            int dec = Convert.ToInt32(hex, 16);
+            string bin = Convert.ToString(dec, 2);
+
+            Console.WriteLine($"{hex}(16) -> {bin}(2)");
+        }
+
+        public static bool OnlyHexInString(string test)
+        {
+            return System.Text.RegularExpressions.Regex.IsMatch(test, @"\A\b[0-9a-fA-F]+\b\Z");
+        }
+    }
+}
