@@ -1,0 +1,50 @@
+using System;
+
+namespace ToDFromS
+{
+    class ToDFromS
+    {
+        static void Main(string[] args)
+        {
+            int s = 0, d = 0;
+
+            Console.Write("Enter N: ");
+            string n = Console.ReadLine();
+
+            do
+            {
+                s = tryParse(s, "Enter S (S == 2, 8, 10 or 16): ");
+            } while (s != 2 && s != 8 && s != 10 && s != 16);
+
+            do
+            {
+                d = tryParse(d, "Enter D (D == 2, 8, 10 or 16): ");
+            } while (d != 2 && d != 8 && d != 10 && d != 16);
+
+            n = Convert.ToString(Convert.ToInt32(n, s), d);
+
+            Console.WriteLine("Result is {0}.", n);
+        }
+
+        static int tryParse(int num, string message)
+        {
+            bool tryParse = false;
+
+            do
+            {
+                Console.Write(message);
+                tryParse = int.TryParse(Console.ReadLine(), out num);
+                if (tryParse == true)
+                {
+                    return num;
+                }
+                else
+                {
+                    Console.WriteLine("Try again!");
+                }
+            } while (tryParse == false);
+
+            return 1;
+        }
+    }
+}
