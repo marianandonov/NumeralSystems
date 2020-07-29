@@ -1,0 +1,18 @@
+using System;
+
+namespace To10BitAnd16Bit
+{
+    class To10BitAnd16Bit
+    {
+        static void Main(string[] args)
+        {
+            string num = "1111010110011110";
+
+            long dec = Convert.ToInt64(num, 2);
+            Console.WriteLine($"{num}(2) -> {dec}(10)");
+
+            string hex = Convert.ToString(dec, 16);
+            Console.WriteLine($"{num}(2) -> {hex}(16)");
+        }
+    }
+}
