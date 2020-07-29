@@ -1,0 +1,39 @@
+using System;
+
+namespace To2BitFromConsole
+{
+    class To2BitFromConsole
+    {
+        static void Main(string[] args)
+        {
+            bool tryParse = false;
+            bool check = false;
+            string bin = "";
+
+            do
+            {
+                Console.Write("Enter a binary number: ");
+                bin = Console.ReadLine();
+                for(int i = 0; i < bin.Length; i++)
+                {
+                    if(!bin[i].Equals('0') && !bin[i].Equals('1'))
+                    {
+                        Console.WriteLine("Try again!");
+                        check = false;
+                        break;
+                    } else
+                    {
+                        check = true;
+                    }
+                }
+                if(check == true)
+                {
+                    tryParse = true;
+                }
+            } while (tryParse == false);
+
+            int dec = Convert.ToInt32(bin, 2);
+            Console.WriteLine($"{bin}(2) -> {dec}(10)");
+        }
+    }
+}
